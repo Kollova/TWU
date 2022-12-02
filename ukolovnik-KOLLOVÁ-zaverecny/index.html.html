@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Úkolovník</title>
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/bootstrap/css/bootstrap-sablona.min.css" rel="stylesheet" type="text/css"/>
+     <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  
+   <div class="container" style="width: 950px; margin-left: auto; margin-right: auto;">
+    <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html.html"><b></b>Úkolovník</a>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+          <a class="nav-link" href="profil.html" >Profil  </a>
+
+    </div>
+  </div>
+       </nav>     
+<div class="container">
+ 
+  <div class="row">
+    <div class="col-sm-9"><br>
+<div id="myDIV" class="header" href="ukoly.html">
+  <h2>Úkoly</h2>
+  <input type="text" id="myInput" placeholder="Název úkolu...">
+  <span onclick="newElement()" class="addBtn">Přidat</span>
+</div>
+
+<ul id="myUL">
+  <li class="checked">Nakoupit</li>
+  <li>Zaplatit tarif</li>
+  <li>Vyndat popelnice</li>
+  <li>Úkol do školy</li>
+</ul>
+    </div>
+    <br><br><br><br><br>
+    <div class="col-sm-3">
+<img src="list.png" alt="list" style="width:104%">
+    <br>
+<a href="dalsi-ukoly.html">Úkoly pro příště</a>
+               
+
+    </div>
+
+  </div> 
+
+    <br>
+    <br> 
+  <div></div>
+    <div class="col-sm-12"><br>
+ 
+  <div class="form-group1" >
+    <label for="popisVyrobku">Připomínky:</label><br>
+<textarea class="popis" rows="4" style="width:100%;">
+</textarea>
+
+     </div>
+    </div>
+</div>
+<br><br>
+      </div>
+  <br><br>
+ <script>
+ 
+// zavrit ukol
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// skryt zavřený ukol
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// ukol je checked
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// pridat ukol
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Něco musíš napsat!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
+let myform = document.querySelector()
+     
+     
+</script>
+  </body>
+
+</html> 
